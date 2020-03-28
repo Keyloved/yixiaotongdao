@@ -1,0 +1,41 @@
+<form bindsubmit="formSubmit">
+    <!--如果是一封信-->
+    <view wx:if='{{whichOperation == "writeToFuture"}}'>
+        <!--一封信功能描述-->
+        <view class='mailDesc'>
+            <text>「一封信」 写给未来的ta</text>
+        </view>
+        <!--收件人邮箱-->
+        <view class='receiverMail'>
+            <input class="receiverMail-input" name="receiverMail"  placeholder="ta的邮箱" value=""/>
+        </view>
+        <!--多久-->
+        
+        <view class='time'>
+            <view>
+                <text class='timeOut-text'>发送时间</text>
+            </view>
+            <!--
+            <input class="common timeYear-input" type="number" name="timeYear"  placeholder="" value="{{year}}" bindinput='checkIsNum'/>
+            <text class='common-time-show'>年</text>
+            <input class="common timeMonth-input" type="number" name="timeMonth"  placeholder="" value="{{month}}" bindinput='checkIsNum'/>
+            <text class='common-time-show'>月</text>
+            <input class="common timeDay-input" type="number" name="timeDay"  placeholder="" value="{{day}}" bindinput='checkIsNum'/>
+            <text class='common-time-show'>日</text>
+            -->
+            <picker class="time-input" mode="date" name="time" value="{{time}}"         bindchange="listenerTimePickerSelected">
+                    <text>{{time}}</text>
+                </picker>
+        </view>
+    </view>
+    <view class='place-holder' style="border: 1px solid #FFA6A6; border-radius: 10px;">
+          <textarea placeholder-class="place-holder"  placeholder="请输入内容"                                    name="content" maxlength='300' bindinput='limit' value="" style="font-size: 14px;"/>
+
+          <!-- 显示字数 -->
+          <view class="weui-cell__bd" class="clear"><text style="color: #ccc; font-size: 14px; float:               right; margin-right: 2%;">{{current}} / {{max}} （最多可写300字）</text>
+          </view>
+    </view>
+    <view class='leaveWords'> 
+          <button type='primary' formType="submit">发表</button>
+    </view>
+</form>

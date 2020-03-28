@@ -1,0 +1,419 @@
+<!--miniprogram/pages/myList/myList.wxml-->
+<view class='container'>
+    <block>
+        <view class='page_row'>
+            <view class="search">
+                <view class="df search_arr">
+                  <icon class="searchcion" size='20' type='search'></icon>
+                  <input class="" bindtap="suo" placeholder="请输入关键字" disabled='true' value="{{searchValue}}"/>
+                </view>
+            </view>
+            
+        </view>
+    </block>
+    <block>
+        <view class='needskinds'>
+              <view class='needKinds-line1'>
+                  <!--购物-->
+                  <view class='icon-kindName' bindtap='classificationDetails' data-kindid='0'>
+                      <view class='icon'>
+                          <image src='/images/daily.jpg' class='image'></image>
+                      </view>
+                      <view>
+                          <text class='needKinds-line-text'>日常</text>
+                      </view>
+                  </view>
+                  <!--娱乐-->
+                  <view class='icon-kindName' bindtap='classificationDetails' data-kindid='1'>
+                      <view class='icon'>
+                          <image src='/images/entertainment.jpg' class='image'></image>
+                      </view>
+                      <view>
+                          <text class='needKinds-line-text'>娱乐</text>
+                      </view>
+                  </view>
+                  <!--驾校-->
+                  <view class='icon-kindName' bindtap='classificationDetails' data-kindid='2'>
+                      <view class='icon'>
+                          <image src='/images/driverSchool.png' class='image'></image>
+                      </view>
+                      <view>
+                          <text class='needKinds-line-text'>驾校</text>
+                      </view>
+                  </view>
+                  <!--旅游-->
+                  <view class='icon-kindName' bindtap='classificationDetails' data-kindid='3'>
+                      <view class='icon'>
+                          <image src='/images/travel.jpg' class='image'></image>
+                      </view>
+                      <view>
+                          <text class='needKinds-line-text'>旅游</text>
+                      </view>
+                  </view>
+              </view>
+              <view class='needKinds-line2'>
+                  <!--拼车-->
+                  <view class='icon-kindName' bindtap='classificationDetails' data-kindid='4'>
+                      <view class='icon'>
+                          <image src='/images/Carpooling.png' class='image'></image>
+                      </view>
+                      <view>
+                          <text class='needKinds-line-text'>拼车</text>
+                      </view>
+                  </view>
+                  <!--学习-->
+                  <view class='icon-kindName' bindtap='classificationDetails' data-kindid='5'>
+                      <view class='icon'>
+                          <image src='/images/study.jpg' class='image'></image>
+                      </view>
+                      <view>
+                          <text class='needKinds-line-text'>学习</text>
+                      </view>
+                  </view>
+                  <!--运动-->
+                  <view class='icon-kindName' bindtap='classificationDetails' data-kindid='6'>
+                      <view class='icon'>
+                          <image src='/images/sport.jpg' class='image'></image>
+                      </view>
+                      <view>
+                          <text class='needKinds-line-text'>运动</text>
+                      </view>
+                  </view>
+                  <!--其他-->
+                  <view class='icon-kindName' bindtap='classificationDetails' data-kindid='7'>
+                      <view class='icon'>
+                          <image src='/images/other.jpg' class='image'></image>
+                      </view>
+                      <view>
+                          <text class='needKinds-line-text'>其他</text>
+                      </view>
+                  </view>
+              </view>
+        </view>
+    </block>
+    <!--用户正在组队的信息，如果没有，推荐热门组队消息-->
+    <block>
+        <view class='teaming' wx:if='{{teamingNeedsNum == -1 }}'>
+            <view class='teaming_text'>
+                <text bindtap='reflush'>正在查询中～～，点击刷新</text>
+            </view>
+            <view class='teaming_text_view' bindtap='reflush'>
+                <text>刷新</text>
+            </view>
+        </view>
+        <view class='teaming' wx:elif = '{{teamingNeedsNum == 0 }}'>
+            <view class='teaming_text'>
+                <text bindtap='enterAddNew'>您没有正在组队的需求，点击创建试试吧～～</text>
+            </view>
+            <view class='teaming_text_view' bindtap='enterAddNew'>
+                <text>去创建</text>
+            </view>
+        </view>
+        <view class='teaming' wx:else>
+            <view class='teaming_text'>
+                <text bindtap='getAllMyList' data-whichoperation='teaming'>您有{{teamingNeedsNum}}个组队正在进行中...</text>
+            </view>
+            <view class='teaming_text_view' bindtap='getAllMyList' data-whichoperation='teaming'>
+                <text>点击查看</text>
+            </view>
+        </view>
+        
+    </block>
+    <!--最新消息-->
+    <block>
+        <!--最新消息提示语-->
+        <view class='newProgressStatement'>
+            <text>竞赛推荐</text>
+        </view>
+        <!--竞赛推荐-->
+        <view class='competitions'>
+            <!--ACM竞赛介绍-->
+            <view class='competitionInfo'>
+                <!--竞赛图片-->
+                <view class='competitionInfo-image'>
+                    <image class='competitionInfo-image' src='/images/ACM.jpeg'></image>
+                </view>
+                <!--竞赛标题-->
+                <view class='competitionInfo-info'>
+                    <view class='title-enterAddNew'>
+                        <!--竞赛标题-->
+                        <view class='title'>
+                            <text>ACM</text>
+                        </view>
+                        <!--发起组队-->
+                        <view class='enterAddNew' bindtap='enterAddNew' data-competitionname='ACM'>
+                            <text>发起组队</text>
+                        </view>
+                    </view>
+                    <!--竞赛介绍-->
+                    <view class='content'>
+                        <text>校内官网</text>
+                        <text style='color:red' selectable='true'>http://acm.xidian.edu.cn/</text>
+                        <text>,每年10月到12月在 全球各个分赛区举办预选赛</text>
+                    </view>
+                </view>
+            </view>
+            
+            <!--互联网+竞赛介绍-->
+            <view class='competitionInfo' >
+                <!--竞赛图片-->
+                <view class='competitionInfo-image'>
+                    <image class='competitionInfo-image' src='/images/internet.jpeg'></image>
+                </view>
+                <!--互联网+竞赛标题-->
+                <view class='competitionInfo-info'>
+                    <view class='title-enterAddNew'>
+                        <!--竞赛标题-->
+                        <view class='title'>
+                            <text>互联网+</text>
+                        </view>
+                        <!--发起组队-->
+                        <view class='enterAddNew' bindtap='enterAddNew' data-competitionname='互联网+'>
+                            <text>发起组队</text>
+                        </view>
+                    </view>
+                    <!--竞赛介绍-->
+                    <view class='content'>
+                        <text>官网</text>
+                        <text style='color:red' selectable='true'>https://cy.ncss.org.cn/</text>
+                        <text>报名(3-5月)--初复赛(6-9月)--全国决赛(10月中下旬)</text>
+                    </view>
+                </view>
+            </view>
+            <!--挑战杯竞赛介绍-->
+            <view class='competitionInfo' >
+                <!--竞赛图片-->
+                <view class='competitionInfo-image'>
+                    <image class='competitionInfo-image' src='/images/ChallengeCup.gif'></image>
+                </view>
+                <!--挑战杯竞赛标题-->
+                <view class='competitionInfo-info'>
+                    <view class='title-enterAddNew'>
+                        <!--竞赛标题-->
+                        <view class='title'>
+                            <text>挑战杯</text>
+                        </view>
+                        <!--发起组队-->
+                        <view class='enterAddNew' bindtap='enterAddNew' data-competitionname='挑战杯'>
+                            <text>发起组队</text>
+                        </view>
+                    </view>
+                    <!--竞赛介绍-->
+                    <view class='content'>
+                        <text>校内官网</text>
+                        <text style='color:red' selectable='true'>http://www.tiaozhanbei.net/d114/project/4262/</text>
+                        <text>学生申报阶段-校级审核阶段-团省委审核阶段</text>
+                    </view>
+                </view>
+            </view>
+            <!--国创竞赛介绍-->
+            <view class='competitionInfo' >
+                <!--竞赛图片-->
+                <view class='competitionInfo-image'>
+                    <image class='competitionInfo-image' src='/images/NationalInnovation.jpg'></image>
+                </view>
+                <!--竞赛标题-->
+                <view class='competitionInfo-info'>
+                    <view class='title-enterAddNew'>
+                        <!--竞赛标题-->
+                        <view class='title'>
+                            <text>创青春（国创）</text>
+                        </view>
+                        <!--发起组队-->
+                        <view class='enterAddNew' bindtap='enterAddNew' data-competitionname='创青春（国创）'>
+                            <text>发起组队</text>
+                        </view>
+                    </view>
+                    <!--竞赛介绍-->
+                    <view class='content'>
+                        <text>官网</text>
+                        <text style='color:red' selectable='true'>http://www.chuangqingchun.net/</text>
+                        <text>自2014年起共同组织开展"创青春"全国大学生创业大赛，每两年举办一次</text>
+                    </view>
+                </view>
+            </view>
+            <!--数模竞赛介绍-->
+            <view class='competitionInfo' >
+                <!--竞赛图片-->
+                <view class='competitionInfo-image'>
+                    <image class='competitionInfo-image' src='/images/MathematicalModel.jpg'></image>
+                </view>
+                <!--竞赛标题-->
+                <view class='competitionInfo-info'>
+                    <view class='title-enterAddNew'>
+                        <!--竞赛标题-->
+                        <view class='title'>
+                            <text>数模</text>
+                        </view>
+                        <!--发起组队-->
+                        <view class='enterAddNew' bindtap='enterAddNew' data-competitionname='数模'>
+                            <text>发起组队</text>
+                        </view>
+                    </view>
+                    <!--竞赛介绍-->
+                    <view class='content'>
+                        <text>官网</text>
+                        <text style='color:red' selectable='true'>http://www.mcm.edu.cn/</text>
+                        <text>校赛(05.01至05.03)---国赛(09.11至09.14)---美赛(次年02.06至02.10)</text>
+                    </view>
+                </view>
+            </view>
+            <!--电赛竞赛介绍-->
+            <view class='competitionInfo' >
+                <!--竞赛图片-->
+                <view class='competitionInfo-image'>
+                    <image class='competitionInfo-image' src='/images/ElectricRace.jpg'></image>
+                </view>
+                <!--电赛竞赛标题-->
+                <view class='competitionInfo-info'>
+                    <view class='title-enterAddNew'>
+                        <!--竞赛标题-->
+                        <view class='title'>
+                            <text>电赛</text>
+                        </view>
+                        <!--发起组队-->
+                        <view class='enterAddNew' bindtap='enterAddNew' data-competitionname='电赛'>
+                            <text>发起组队</text>
+                        </view>
+                    </view>
+                    <!--竞赛介绍-->
+                    <view class='content'>
+                        <text>官网</text>
+                        <text style='color:red' selectable='true'>http://nuedc.xidian.edu.cn/index.html</text>
+                        <text>校内选拔(学期初/学期末)---校内赛---省赛---国赛(3-5月报名、8月中旬比赛)</text>
+                    </view>
+                </view>
+            </view>
+            <!--TI杯竞赛介绍-->
+            <view class='competitionInfo' >
+                <!--竞赛图片-->
+                <view class='competitionInfo-image'>
+                    <image class='competitionInfo-image' src='/images/TI.jpeg'></image>
+                </view>
+                <!--竞赛标题-->
+                <view class='competitionInfo-info'>
+                    <view class='title-enterAddNew'>
+                        <!--竞赛标题-->
+                        <view class='title'>
+                            <text>TI杯</text>
+                        </view>
+                        <!--发起组队-->
+                        <view class='enterAddNew' bindtap='enterAddNew' data-competitionname='TI杯'>
+                            <text>发起组队</text>
+                        </view>
+                    </view>
+                    <!--竞赛介绍-->
+                    <view class='content'>
+                        <text>官网</text>
+                        <text style='color:red' selectable='true'>http://ticup.eelab.hust.edu.cn/</text>
+                        <text>校内分阶段性培训(3月-5月)---校内选拔赛(6月初)---TI杯(7月下旬)---全国模拟电子系统专题邀请赛(8月底-9月初)</text>
+                    </view>
+                </view>
+            </view>
+            <!--微软创新杯竞赛介绍-->
+            <view class='competitionInfo' >
+                <!--竞赛图片-->
+                <view class='competitionInfo-image'>
+                    <image class='competitionInfo-image' src='/images/InnovationCup.jpg'></image>
+                </view>
+                <!--竞赛标题-->
+                <view class='competitionInfo-info'>
+                    <view class='title-enterAddNew'>
+                        <!--竞赛标题-->
+                        <view class='title'>
+                            <text>微软创新杯</text>
+                        </view>
+                        <!--发起组队-->
+                        <view class='enterAddNew' bindtap='enterAddNew' data-competitionname='微软创新杯'>
+                            <text>发起组队</text>
+                        </view>
+                    </view>
+                    <!--竞赛介绍-->
+                    <view class='content'>
+                        <text>官网</text>
+                        <text style='color:red' selectable='true'>https://imaginecup.microsoft.com/zh-cn/Events?id=0</text>
+                        <text>中国区半决赛和中国区决赛的具体开始和结束时间以及决赛地点将在2014年4月1日前公布。全球总决赛将在美国西雅图进行，具体开始和结束时间将在2014年6月1日前公布。</text>
+                    </view>
+                </view>
+            </view>
+            <!--全国大学生信息安全竞赛竞赛介绍-->
+            <view class='competitionInfo' >
+                <!--竞赛图片-->
+                <view class='competitionInfo-image'>
+                    <image class='competitionInfo-image' src='/images/NationalCollegeStudentsInformationSecurityCompetition.jpg'></image>
+                </view>
+                <!--竞赛标题-->
+                <view class='competitionInfo-info'>
+                    <view class='title-enterAddNew'>
+                        <!--竞赛标题-->
+                        <view class='title'>
+                            <text>全国大学生信息安全竞赛</text>
+                        </view>
+                        <!--发起组队-->
+                        <view class='enterAddNew' bindtap='enterAddNew' data-competitionname='全国大学生信息安全竞赛'>
+                            <text>发起组队</text>
+                        </view>
+                    </view>
+                    <!--竞赛介绍-->
+                    <view class='content'>
+                        <text>官网</text>
+                        <text style='color:red' selectable='true'>http://www.ciscn.cn/</text>
+                        <text>报名 & 参赛作品上传时间(3—5 月)---参赛名单公布(5月底)---公布决赛名单(7月初)---决赛时间(7月底)</text>
+                    </view>
+                </view>
+            </view>
+            <!--全国大学生机器人大赛竞赛介绍-->
+            <view class='competitionInfo' >
+                <!--竞赛图片-->
+                <view class='competitionInfo-image'>
+                    <image class='competitionInfo-image' src='/images/NationalUniversityRobotCompetition.gif'></image>
+                </view>
+                <!--竞赛标题-->
+                <view class='competitionInfo-info'>
+                    <view class='title-enterAddNew'>
+                        <!--竞赛标题-->
+                        <view class='title'>
+                            <text>全国大学生机器人大赛</text>
+                        </view>
+                        <!--发起组队-->
+                        <view class='enterAddNew' bindtap='enterAddNew' data-competitionname='全国大学生机器人大赛'>
+                            <text>发起组队</text>
+                        </view>
+                    </view>
+                    <!--竞赛介绍-->
+                    <view class='content'>
+                        <text>官网</text>
+                        <text style='color:red' selectable='true'>http://www.robotac.cn/</text>
+                        <text>铁甲钢拳，接触对抗，地形多样，策略多变，创意为先，自由设计</text>
+                    </view>
+                </view>
+            </view>
+            <!--星火杯竞赛介绍-->
+            <view class='competitionInfo'>
+                <!--竞赛图片-->
+                <view class='competitionInfo-image'>
+                    <image class='competitionInfo-image' src='/images/SparkCup.jpeg'></image>
+                </view>
+                <!--星火杯竞赛标题-->
+                <view class='competitionInfo-info'>
+                    <view class='title-enterAddNew'>
+                        <!--竞赛标题-->
+                        <view class='title'>
+                            <text>星火杯</text>
+                        </view>
+                        <!--发起组队-->
+                        <view class='enterAddNew' bindtap='enterAddNew' data-competitionname='星火杯'>
+                            <text>发起组队</text>
+                        </view>
+                    </view>
+                    <!--竞赛介绍-->
+                    <view class='content'>
+                        <text>校内官网</text>
+                        <text style='color:red' selectable='true'>http://www.xdkexie.com/</text>
+                        <text>报名每年10月中旬左右</text>
+                    </view>
+                </view>
+            </view> 
+        </view>
+    </block>
+</view>

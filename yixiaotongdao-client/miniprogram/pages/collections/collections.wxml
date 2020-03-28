@@ -1,0 +1,45 @@
+<view class='container'>
+    <block>
+        <view wx:for='{{collections}}' wx:key='id' class='collectionsList'>
+            <view class='collectionTime-viewNo'>
+                <!--收藏时间-->
+                <view class='collectionTime'>
+                    <text>于 {{item.userCollection.createTime}} 收藏</text>
+                </view>
+                <!--创建人信息-->
+                <view class='needCreater' bindtap='enterUserInfo' data-userid='{{item.needCreater.id}}'>
+                    <text class='needCreater'decode='true'>&nbsp;&nbsp;{{item.needCreater.nickName}} </text>
+                </view>
+                <text decode='true'>&nbsp;&nbsp;创建的</text>
+                <!--查看人数显示-->
+                <view class='viewNo'>
+                      <icon class="iconfont iconicon_yulan"></icon>
+                      <text class='viewNum'>{{item.needDetails.viewNo}}</text>
+                </view>
+            </view>
+
+            <view bindtap='detailsNeeds' data-item='{{item.needDetails}}'>
+                <!--需求标题-->
+                <view class='common-shezhi title'>
+                    <text>【{{item.needDetails.title}}】</text>
+                </view>
+                <!--需求内容-->
+                <view class='common-shezhi content'>
+                    <text decode='true'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.needDetails.content}}</text>
+                </view>
+            </view>
+            <!--进度条-->
+            <view class='topBox'>
+                  <view class='topLittleBOX-1'>人数占比</view>
+                  <view class='topLittleBOX-2'>
+                    <view class='row-1' style='width:{{300/item.limitNo*item.joinNo}}rpx'></view>
+                    <view class='rowText'>{{item.needDetails.joinNo}}/{{item.needDetails.limitNo}}</view>
+                  </view>
+                  <!--删除收藏操作-->
+                  <view class='deleteColletion' bindtap='deleteColletion' data-collectionid='{{item.userCollection.id}}'>
+                      <icon class="iconfont iconshanchu" bindtap='deleteColletion' data-collectionid='{{item.userCollection.id}}'></icon>
+                  </view>
+            </view>
+        </view>
+    </block>
+</view>

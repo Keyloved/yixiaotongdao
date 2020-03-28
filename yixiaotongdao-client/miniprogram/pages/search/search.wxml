@@ -1,0 +1,106 @@
+<wxs module="util">
+    var subTitle = function(val) {
+        if(val.length > 4) {
+            return val.substring(0, 4)+"...";
+        }
+        return val;
+    }
+    var subContent = function(val) {
+      if(val.length > 10) {
+        return val.substring(0, 10)+"...";
+      }
+      return val;
+    }
+    module.exports.subTitle = subTitle;
+    module.exports.subContent = subContent;
+</wxs>
+<view class="SearchBox">
+  <view class="Search_input_top_box">
+    <view class="Search_ico_box">
+      <icon class="searchcion" size='14' type='search'></icon>
+    </view>
+    <input class="Search_Input" focus="{{name_focus}}" placeholder='请输入需求标题、 内容关键字进行搜索' bindinput='inputvalue' value="{{input_value}}"></input>
+    <view class="Search_btn" bindtap='search'>{{SearchText}}</view>
+  </view>
+  <!--按照类型搜索-->
+  <view class='search-type'>
+    <!--类型名称类型，下划线设置-->
+    <view class='common-width-withLine' wx:if='{{categoryNameLine}}' bindtap='changeSearchType' data-typename='categoryName'>
+      <text>类型名称</text>
+    </view>
+    <view class='common-width-noLine' wx:else bindtap='changeSearchType' data-typename='categoryName'>
+      <text>类型名称</text>
+    </view>
+    <!--标题类型，下划线设置-->
+    <view class='common-width-withLine' wx:if='{{titleLine}}' bindtap='changeSearchType' data-typename='title'>
+      <text>标题</text>
+    </view>
+    <view class='common-width-noLine' wx:else bindtap='changeSearchType' data-typename='title'>
+      <text>标题</text>
+    </view>
+    <!--内容类型，下划线设置-->
+    <view class='common-width-withLine' wx:if='{{contentLine}}' bindtap='changeSearchType' data-typename='content'>
+      <text>内容</text>
+    </view>
+    <view class='common-width-noLine' wx:else bindtap='changeSearchType' data-typename='content'>
+      <text>内容</text>
+    </view>
+    <!--时间类型，下划线设置-->
+    <view class='common-width-withLine' wx:if='{{timeLine}}' bindtap='changeSearchType' data-typename='time'>
+      <text>时间</text>
+    </view>
+    <view class='common-width-noLine' wx:else bindtap='changeSearchType' data-typename='time'>
+      <text>时间</text>
+    </view>
+    
+  </view>
+  <view class="Search_xian"></view>
+  <!--搜索记录盒子-->
+  <view class="Search_record_box" wx:if='{{listarr.length != 0}}'>
+    <view class="Search_record_text">
+      <text>搜索记录</text>
+      <icon class="iconfont iconshanchu" bindtap='delete_list'></icon>
+    </view>
+    <!--记录词的盒子-->
+    <view class="History_box">
+      <view class="History-list">
+        <text wx:for="{{listarr}}" data-text="{{item}}" wx:key="key" bindtap='this_value'>{{item}}</text>
+      </view>
+    </view>
+  </view>
+  <!--热门搜索盒子-->
+  <view class="hot_box" wx:if='{{hostarr.length != 0}}'>
+    <view class="hot_box_text">
+      <text>热门搜索</text>
+    </view>
+      <!--热门词的盒子-->
+    <view class="History_box">
+      <view class="History-list">
+        <text wx:for="{{hostarr}}"  data-text="{{item}}" wx:key="key" bindtap='this_value'>{{item}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<!--展示搜索数据-->
+<block>
+    <view wx:if='{{searchContent_size != 0}}'>
+        <!--列表数量-->
+        <view class="searchContent_size">
+            <text class='searchContent_size_value'>共搜索到{{searchContent_size}}条内容</text>
+        </view>
+        <!--搜索内容展示-->
+        <view wx:for='{{searchValue}}' wx:key='id' class='searchContent_show' bindtap='enterNeedInfo' data-item='{{item}}'>
+            <view class='common-shezhi title'>
+                <text>【{{util.subTitle(item.title)}}】</text>
+            </view>
+            <view class='common-shezhi content'>
+                <text>【{{util.subContent(item.content)}}】</text>
+            </view>
+        </view>
+    </view>
+    <view wx:else>
+        <view class="search_no" wx:if='{{centent_Show}}'>
+            <text>很抱歉,没有找到您要搜索的资料/(ㄒoㄒ)/~~</text>
+        </view>
+    </view>
+</block>

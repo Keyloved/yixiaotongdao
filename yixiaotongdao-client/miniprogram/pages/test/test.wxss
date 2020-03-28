@@ -1,0 +1,16 @@
+/* miniprogram/pages/test/test.wxss */
+.index {
+  border-color: black;
+}
+.switch{
+  background-color: orange;
+}
+
+.float {
+  float: left;
+}
+
+.test{
+  display:flex;
+  flex-flow: row;
+}

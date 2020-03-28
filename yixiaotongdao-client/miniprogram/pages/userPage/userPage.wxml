@@ -1,0 +1,81 @@
+<!--miniprogram/pages/myList/myList.wxml-->
+<view class='container'>
+  <block>
+     <!--用户已登录-->
+    <view class='signIn' wx:if = '{{userId != null}}'>
+      <view class='userInfoLeft'>
+        <view class='userInfo-avater'>
+          <image class='userInfoIcon' src="{{userInfo.avatarUrl}}"></image>
+        </view>
+        <view class='userInfoDetails'>
+          <view class='userInfo-name'>{{userInfo.nickName}}</view>
+          <view wx:if="{{userInfo.gender==1}}" class="userinfo-gender">
+            <text class="userinfo-gender">男</text>
+          </view>
+          <view wx:else class="userinfo-gender">
+            <text class="userinfo-gender">女</text>
+          </view>
+        </view>
+      </view>
+      <view class='getUserDetails' bindtap='getUserDetails'> 
+            <icon class="iconfont iconbianji" size='40'></icon>
+        </view>
+    </view>
+    <!--用户未登录-->
+    <view class='notSignIn' wx:if='{{userId==null}}'>
+      <view class='SignInView' bindtap='signIn'>点击登录</view>
+      <view class='notSignINUserInfoIcon'>
+        <image src='/images/notSignInImage.jpg' class='notSignInImage'></image>
+      </view>
+    </view>
+  </block>
+  <!--新增需求-->
+  <block>
+        <view class='addNewNeed' bindtap='addNew'> 
+            <icon class="iconfont iconicon_tianjia"></icon>
+            <text class='opreatText'>添加需求</text>
+        </view>
+
+        <!--我的创建-->
+        <view class='allNeeds' bindtap='getAllMyList' data-whichoperation='allmylist'> 
+            <icon class="iconfont iconliebiaomoshi_kuai"></icon>
+            <text class='opreatText'>我的创建</text>
+        </view>
+
+        <!--我的加入-->
+        <view class='joinedNeeds' bindtap='getAllMyList' data-whichoperation='joined'> 
+            <icon class="iconfont iconxingzhuang-wenzi"></icon>
+            <text class='opreatText'>我的加入</text>
+        </view>
+
+        <!--完成需求-->
+        <view class='finishedNeeds' bindtap='getAllMyList' data-whichoperation='finished'> 
+            <icon class="iconfont iconkongxinduigou"></icon>
+            <text class='opreatText'>已完成</text>
+        </view>
+
+        <!--未完成需求-->
+        <view class='unFinishedNeeds' bindtap='getAllMyList' data-whichoperation='unfinished'> 
+            <icon class="iconfont iconkongxinwenhao"></icon>
+            <text class='opreatText'>未完成</text>
+        </view>
+
+        <!--我的收藏-->
+        <view class='collectionNeeds' bindtap='getCollections'> 
+            <icon class="iconfont iconshoucang"></icon>
+            <text class='opreatText'>我的收藏</text>
+        </view>
+
+        <!--信誉度-->
+        <!--<view class='userInfo-credit'>
+            <icon class="iconfont iconchucun"></icon>
+            <text class='opreatText'>我的信誉度</text>
+        </view>-->
+
+        <!--设置-->
+        <view class='userInfo-credit' bindtap='setUp'>
+            <icon class="iconfont iconicon_shezhi"></icon>
+            <text class='opreatText'>设置</text>
+        </view>
+  </block>
+</view>

@@ -1,0 +1,67 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/main/main",
+    "pages/messagePage/messagePage",
+    "pages/needsDetails/needsDetails",
+    "pages/userInfo/userInfo",
+    "pages/test/test",
+    "pages/userPage/userPage",
+    "pages/evaluatePage/evaluate",
+    "pages/editUser/editUser",
+    "pages/addNew/addNew",
+    "pages/logs/logs",
+    "pages/editNeeds/editNeeds",
+    "pages/applyMessageList/applyMessageList",
+    "pages/search/search",
+    "pages/classificationDetails/classificationDetails",
+    "pages/collections/collections",
+    "pages/joinedUserManager/joinedUserManager",
+    "pages/userSetUp/userSetUp",
+    "pages/leavingMessage/write/write",
+    "pages/leavingMessage/view/view"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "一校同道",
+    "navigationBarTextStyle": "black",
+    "backgroundColorBottom": "#ffffff",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "borderStyle": "black",
+    "height": "2cm",
+    "list": [
+      {
+        "pagePath": "pages/main/main",
+        "text": "首页",
+        "iconPath": "images/main.png",
+        "selectedIconPath": "images/main.png"
+      },
+      {
+        "pagePath": "pages/messagePage/messagePage",
+        "text": "消息",
+        "iconPath": "images/message.png",
+        "selectedIconPath": "images/message.png"
+      },
+      {
+        "pagePath": "pages/userPage/userPage",
+        "text": "我的",
+        "iconPath": "images/person.png",
+        "selectedIconPath": "images/person.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true,
+  "navigateToMiniProgramAppIdList": [
+    "wxe5f52902cf4de896"
+  ],
+  "sitemapLocation": "sitemap.json"
+}

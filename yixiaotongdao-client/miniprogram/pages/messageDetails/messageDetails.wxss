@@ -1,0 +1,93 @@
+/* miniprogram/pages/newMessageDetails/newMessagedetails.wxss */
+.container{
+  display: table;
+  height: 100%;
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: hidden;
+}
+
+.applyStatement{
+  display: flex;
+  flex-flow: row;
+}
+
+.senderIcon{
+  width:80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.senderNickname{
+  color: red;
+}
+
+.createTime{
+  font-size: 50%;
+}
+
+.senderApply{
+  display: flex;
+  flex-flow: row;
+}
+
+.evaluate{
+  display: flex;
+  flex-flow: row;
+}
+.senderEvaluete{
+  display: flex;
+  flex-flow: row;
+}
+
+.needInfo{
+  border:0.1rpx double silver;
+}
+
+.approveOrRefuse{
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+}
+
+.approve{
+  width: 100%;
+}
+
+.approveBoth{
+  width: 100%;
+}
+.refuseBoth{
+  width: 100%;
+}
+.overTime{
+  width: 100%;
+}
+.overNumber{
+  width: 100%;
+}
+.shortNeedStatment{
+  background-color: #f8f5f5;
+}
+.shortNeedContent{
+  overflow: hidden;
+}
+
+.evaluate-block{
+  border-bottom: 0.1rpx double rgb(240, 234, 234);
+  margin-bottom: 20rpx; 
+}
+
+.evaluateText{
+  font-size: 80%;
+}
+
+.message-apply-overTime-overNumber{
+  margin-bottom: 20rpx; 
+}
+
+.eliminate-block{
+  border-bottom: 0.1rpx double rgb(240, 234, 234);
+  margin-bottom: 20rpx; 
+}

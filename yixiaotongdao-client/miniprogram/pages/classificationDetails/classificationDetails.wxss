@@ -1,0 +1,78 @@
+@import "/style/iconfont.wxss";
+.warp {
+   width: 100%;
+   height: 100%;
+   background: white;
+   display: flex;
+}
+.list {
+     width: 25%; 
+     height: 100%;
+     background: #f2f2f2f2;
+}
+.style {
+   width: 200rpx;
+   height: 100rpx;
+   line-height: 100rpx;
+   padding-left: 20rpx;
+   box-sizing: border-box;
+}
+.content {
+    margin-left: 20rpx;
+    margin-bottom: 20rpx;
+    background-color: white;
+    width: 100%;
+    line-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+.active{
+   color: red;
+}
+
+.contentBlock{
+  border-bottom: 0.1rpx double rgb(240, 234, 234);
+  margin-bottom: 30rpx;
+}
+
+.userInfo-avater-nickName{
+  display: flex;
+  flex-flow: row;
+}
+
+.userInfo-avater{
+  width:80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.nickName-createTime{
+  display: flex;
+  flex-flow: column;
+}
+
+.nickName{
+  color: red;
+}
+
+.createTime {
+  font-size: 50%;
+}
+
+.needTitle{
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.needContent{
+  margin-bottom: 20rpx;
+}
+
+.viewNo{
+  position:absolute;
+  right: 40rpx;
+}
+.viewNum{
+  font-size: 50%;
+}

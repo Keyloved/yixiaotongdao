@@ -1,0 +1,47 @@
+/* miniprogram/pages/leavingMessage/view/view.wxss */
+@import "/style/iconfont.wxss";
+.container{
+  display: table;
+  height: 100%;
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: hidden;
+  color: rgba(138, 135, 135, 0.863);
+}
+
+.Desc{
+  text-align: center;
+  margin: 28rpx 28rpx 28rpx;
+  background:rgb(241, 243, 243);
+}
+
+.view-item{
+  display: flex;
+  flex-flow: row;
+  margin-top: 30rpx;
+  border-bottom: 0.1rpx double rgb(240, 234, 234);
+}
+
+.userIcon{
+  margin-left: 20rpx;
+  width:80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.nickName-messsage-createTime{
+  margin-left: 10rpx;
+}
+
+.nickName{
+  font-size: 80%;
+}
+
+.message{
+  font-size: 80%;
+}
+
+.createTime{
+  font-size: 50%
+}

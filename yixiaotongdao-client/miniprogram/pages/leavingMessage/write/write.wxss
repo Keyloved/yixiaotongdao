@@ -1,0 +1,41 @@
+/* miniprogram/pages/evaluatePage/evaluate.wxss */
+.leaveWords {
+  background-color:rgb(241, 243, 243);
+  left: 2cm;
+  width:1.8cm;
+  margin-top:0.5cm;
+}
+
+.mailDesc{
+  text-align: center;
+  margin: 28rpx 28rpx 28rpx;
+  background:rgb(241, 243, 243);
+}
+
+.receiverMail{
+  margin: 28rpx 28rpx 28rpx;
+  padding-right: 20rpx;
+  border-bottom: 0.1rpx double rgb(240, 234, 234);
+}
+
+.time{
+  margin: 28rpx 28rpx 28rpx;
+  display: flex;
+  flex-flow: row;
+  border-bottom: 0.1rpx double rgb(240, 234, 234);
+}
+
+.timeOut-text{
+  margin-right: 20rpx;
+  color:rgba(52, 54, 54, 0.76);
+}
+
+.common {
+  margin-right: 10rpx;
+  width: 100rpx;
+  border: 0.1rpx double rgb(240, 234, 234);
+}
+
+.common-time-show{
+  margin-right: 20rpx;
+}

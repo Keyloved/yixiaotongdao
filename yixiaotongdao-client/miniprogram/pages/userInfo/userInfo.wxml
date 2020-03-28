@@ -1,0 +1,50 @@
+
+<view class='container'>
+    <!--用户基本信息，包括头像，昵称，性别，签名，QQ，微信-->
+    <view class='userInfo'>
+        <!--用户基本信息，包括头像，昵称，性别-->
+        <view class='iconAndNicknameAndSexAndautograph'>
+            <view class='userInfo-avater'>
+                <image class='userInfoIcon' src="{{userInfo.image}}"></image>
+            </view>
+            <view class='userInfoDetails'>
+                <view class='userInfo-name-class'>
+                    <text class='userInfo-name'>{{userInfo.nickName}}</text>
+                </view>
+                <view class="userinfo-gender-age-headurl-autograph">
+                    <text class="userinfo-gender" decode='true'>{{userInfo.sex}}&nbsp;{{userInfo.age}}&nbsp;{{userInfo.headurl}}</text>
+                </view>
+                <!--签名-->
+                <view class='autograph'>
+                    <text wx:if='{{userInfo.autograph != null}}'>{{userInfo.autograph}}</text>
+                </view>
+                
+                <!--QQ-->
+                <view class='QQ'>
+                    <text wx:if='{{userInfo.qq != null && userInfo.isQQOpen == 1}}'>QQ:    {{userInfo.qq}}</text>
+                </view>
+                <!--微信-->
+                <view class='weixin'>
+                    <text wx:if='{{userInfo.weixin != null && userInfo.isWeixinOpen == 1}}'>微信: {{userInfo.weixin}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!--个人组队需求信息-->
+    <view class='all-userInfo-needs'>
+        <view class='userInfo-needs' bindtap='getAllMyList' data-userid='{{userInfo.id}}' data-whichoperation='allmylist'>
+            <icon class="iconfont iconliebiaomoshi_kuai"></icon>
+            <text class='userInfo-needs-label'>ta的帖子</text>
+        </view>
+        <!--他的完成-->
+        <view class='userInfo-finished-needs' bindtap='getAllMyList' data-userid='{{userInfo.id}}' data-whichoperation='finished'>
+            <icon class="iconfont iconkongxinduigou"></icon>
+            <text class='userInfo-needs-label'>ta的完成</text>
+        </view>
+        <!--信誉度-->
+        <!--<view class='userInfo-credit'>
+            <icon class="iconfont iconchucun"></icon>
+            <text class='userInfo-needs-label'>ta的信誉度</text>
+        </view>-->
+    </view>
+</view>

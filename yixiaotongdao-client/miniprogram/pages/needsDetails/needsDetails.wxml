@@ -1,0 +1,101 @@
+ <view class="table">
+      <block>
+          <view class='needBlock'>
+              <view class='common-lable'>【{{item.needInfo.title}}】</view>
+              <view class='common-lable'>
+                  <text decode='true'>&nbsp;&nbsp;&nbsp;{{item.needInfo.content}}</text>
+              </view>
+              <view class='common-lable common-shezhi time'>
+                  <text decode='true'>&nbsp;&nbsp;&nbsp;Time: {{item.needInfo.startTime}} ~ {{item.needInfo.deadline}}</text>
+              </view>
+              <view class='common-lable common-shezhi limitNo'>
+                  <text decode='true'>&nbsp;&nbsp;&nbsp;人数限制: {{item.needInfo.limitNo}}人</text>
+              </view>
+              <view class='common-lable common-shezhi joinNo'>
+                  <text decode='true'>&nbsp;&nbsp;&nbsp;当前人数: {{item.needInfo.joinNo}}人</text>
+              </view>
+              <!--参与人员介绍-->
+              <view class='common-lable common-shezhi joinUsers'>
+                  <view class='joinUsersImages'>
+                      <view>
+                          <text decode='true'>&nbsp;&nbsp;&nbsp;参与人员&nbsp;&nbsp;</text>
+                      </view>
+                      <view wx:for='{{item.joinUsersInfo}}' wx:key='id'>
+                          <view class='userInfo-avater'>
+                              <image class='userInfoIcon' src="{{item.image}}" bindtap='enterUserInfo' data-senderid='{{item.id}}'></image>
+                          </view>
+                      </view>
+                  </view>
+              </view>
+              <view class='common-lable common-shezhi qq' wx:if='{{item.needInfo.qq != null || item.needInfo.qq!=""}}'>
+                  <text decode='true' selectable='true'>&nbsp;&nbsp;&nbsp;qq: [{{item.needInfo.qq}}]</text>
+              </view>
+              <view class='common-lable common-shezhi weChat' wx:if='{{item.needInfo.weChat!= null || item.needInfo.weChat!=""}}'>
+                  <text decode='true' selectable='true'>&nbsp;&nbsp;&nbsp;微信: [{{item.needInfo.weChat}}]</text>
+              </view>
+          </view>
+      </block>
+       <!--编辑，删除，申请加入，评论，已过期，人员已满-->
+      <block>
+          <view class='opreations'>
+              <view class="table-ti" bindtap='editNeeds' data-id='{{item.needInfo.id}}' wx:if='{{userId != null && (item.needInfo.userId==userId || item.needInfo.recipientId == userId)}}'>
+                  <text>编辑</text>
+              </view>
+              <view class="table-ti" bindtap='deleteNeeds' data-id='{{item.needInfo.id}}' wx:if='{{userId != null && (item.needInfo.userId==userId || item.needInfo.recipientId == userId)}}'>
+                  <text>删除</text>
+              </view>
+              <view class="table-ti" bindtap='collection' data-item='{{item.needInfo}}'>
+                  <text>收藏</text>
+              </view>
+              <view class="table-ti" bindtap='evaluate' data-item='{{item.needInfo}}' data-id='2' data-whichoperation='evaluete'>
+                  <text>评论</text>
+              </view>
+              <!-->
+              <view wx:if='{{item.userId != userId}}'>
+                  <view class="table-ti" wx:if='{{item.isOverTime == 1}}'>已过期</view>
+                  <view class="table-ti" bindtap='evaluate' data-item='{{item}}' data-id='1' wx:elif='{{item.joinNo < item.limitNo}}'>申请加入>></view>
+                  <view class="table-ti"  wx:else>人员已满</view>
+              </view>
+              -->
+              <view class="table-ti" wx:if='{{item.isOverTime == 1}}' bindtap='overTime'>
+                  <text>已过期</text>
+              </view>
+              <view  class="table-ti" wx:elif='{{needsHasUser}}'>
+                  <text>已加入</text>
+              </view>
+              <view  class="table-ti" bindtap='evaluate' data-item='{{item.needInfo}}' data-id='1' data-whichoperation='applyJoin' wx:elif='{{ userId != item.needInfo.userId && item.needInfo.joinNo < item.needInfo.limitNo}}'>
+                  <text>加入</text>
+              </view>
+              <view class="table-ti"  wx:elif='{{ item.needInfo.joinNo == item.needInfo.limitNo}}' bindtap='overNum'>
+                  <text>人员满</text>
+              </view>
+              <view class="table-ti" bindtap='enterCommunicate'>
+                  <text>联系ta</text>
+              </view>
+              <view class="table-ti" bindtap='enterJoinedUserManager' wx:if='{{userId != null && (item.needInfo.userId==userId || item.needInfo.recipientId == userId) }}'>
+                  <text>管理</text>
+              </view>
+              <view class="table-ti">
+                  <button class='share' open-type="share" style='plain:true'>
+                      <!--<icon class='iconfont iconfenxiangfangshi'></icon>-->
+                      分享
+                  </button>
+              </view>
+          </view>
+      </block>
+      <!--评论回复-->
+      <block>
+          <view wx:for='{{evaluateList}}' wx:key='id' class='evaluateList'>
+              <text class='evaluates senderNickName' bindtap='enterUserInfo' data-senderid='{{item.senderId}}' decode='true'>&nbsp;&nbsp;&nbsp;{{item.senderNickName}}</text>
+              <text class='evaluates' bindtap='evaluate' data-item='{{item}}' data-id='2' data-whichoperation='reply'> 评论: {{item.content}}</text>
+              <view wx:if='{{item.replyLists != null}}'>
+                  <view wx:for='{{item.replyLists}}' wx:key='id' bindtap='evaluate' data-item='{{item}}' data-id='2'>
+                      <text class='evaluates senderNickName' bindtap='enterUserInfo' data-senderid='{{item.senderId}}' decode='true'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.senderNickName}}</text>
+                      <text class='evaluates' bindtap='evaluate' data-item='{{item}}' data-id='2' data-whichoperation='reply'> 回复</text>
+                      <text class='evaluates recipientNickName' bindtap='enterUserInfo' data-senderid='{{item.recipientId}}'> {{item.recipientNickName}}</text>
+                      <text class='evaluates' bindtap='evaluate' data-item='{{item}}' data-id='2' data-whichoperation='reply'>：{{item.content}}</text>
+                  </view>
+              </view>
+          </view>
+      </block>
+</view>

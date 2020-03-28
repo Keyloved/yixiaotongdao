@@ -1,0 +1,34 @@
+<view class='container'>
+    <!--完成-->
+    <view class='finish' bindtap='finish'>
+      <text>完成</text>
+    </view>
+    <!--个人资料显示设置-->
+    <view class='common-shezhi userInfo-show'>
+        <text>让ta看</text>
+    </view>
+    <view>
+        <!--qq设置-->
+        <view class='QQ-show'>
+            <text>QQ</text>
+            <switch class="switch-show" checked="{{isQQChecked}}" bindchange="changeSwitchQQ"/>
+        </view>
+        <!--微信设置-->
+        <view class='weixin-show'>
+            <text>微信</text>
+            <switch class="switch-show" checked="{{isWeixinChecked}}" bindchange="changeSwitchWeixin"/>
+        </view>
+    </view>
+    <!--个人需求显示设置-->
+    <view class='common-shezhi userNeeds-show'>
+        <text>让ta访问</text>
+    </view>
+    <view>
+        <!--我的需求设置-->
+        <view class='myNeeds'>
+            <text>我的需求</text>
+            <switch class="switch-show" checked="{{isNeedsChecked}}" bindchange="changeSwitchNeeds"/>
+        </view>
+    </view>
+</view>
+

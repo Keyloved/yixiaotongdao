@@ -1,0 +1,125 @@
+<wxs module="util">
+    var subTitle = function(val) {
+        if(val.length > 4) {
+            return val.substring(0, 4)+"...";
+        }
+        return val;
+    }
+    var subContent = function(val) {
+      if(val.length > 10) {
+        return val.substring(0, 10)+"...";
+      }
+      return val;
+    }
+    module.exports.subTitle = subTitle;
+    module.exports.subContent = subContent;
+</wxs>
+<view class='container'>
+    
+        <block wx:for='{{messageList}}' wx:key='id' class='applyMessageBlock'>
+              
+<!--申请，过期，人员满类型-->
+            <view wx:if='{{item.categoryId==1 || item.categoryId==3 || item.categoryId==4}}' class='message-apply-overTime-overNumber'>
+                <!--申请提示说明-->
+                <view class='applyStatement'>
+                    <!--sender头像-->
+                    <view class='userInfo-avater' bindtap='enterUserInfo' data-senderid='{{item.senderId}}'>
+                        <image class='senderIcon' src="{{item.senderImage}}"></image>
+                    </view>
+                    <!--senderNickname申请加入，日期-->
+                    <view class='senderApplyInfo'>
+                        <view class='senderApply'>
+                            <text class='senderNickname' bindtap='enterUserInfo' data-senderid='{{item.senderId}}'>{{item.senderNickName}}</text>
+                            <text class='applyText' decode="{{true}}" wx:if='{{item.categoryId==1}}'>&nbsp;&nbsp;{{item.messageContent}}</text>
+                            <text class='applyText' decode="{{true}}" wx:if='{{item.categoryId==3 || item.categoryId==4}}'>&nbsp;&nbsp;创建的</text>
+                        </view>
+                        <!--申请消息创建时间-->
+                        <view class='createTime'>{{item.createTime}}</view>
+                    </view>
+                </view>
+                <!--需求数据详情-->
+                <view class='needInfo' bindtap='enterNeedAndMessageDetails' data-item='{{item}}'>
+                  <view class="table-th">【{{item.title}}】</view>
+                  <text class="table-th" decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;{{item.content}} </text>
+                  <view class="table-th">【Time】: {{item.startTime}} ~ {{item.deadline}}</view>
+                  <view class="table-th">【人数限制】: {{item.limitNo}}人</view>
+                  <view class="table-th">【当前人数】: {{item.joinNo}}</view>
+                  <view class="table-th">【创建时间】: {{item.needCreateTime}}</view>
+                </view>
+                <!--同意或者拒绝-->
+                <view class='approveOrRefuse' wx:if='{{item.categoryId==1 && item.senderId != userId}}'>
+                    <!--点击同意或者拒绝前显示-->
+                    <view wx:if='{{item.isApproved==0}}' class='approveOrRefuse'>
+                        <button class='approveBoth' bindtap='approveOrRefuse' wx:if='{{item.messageContent == "申请退出" || item.limitNo != item.joinNo}}' data-item='{{item}}' data-isapproved='2'>同意</button>
+                        <button class='refuseBoth' bindtap='approveOrRefuse' data-item='{{item}}' data-isapproved='1'>拒绝</button>
+                    </view>
+                    <view wx:if='{{ item.isApproved==2}}' class='approveOrRefuse' >
+                        <button class='approve'>已同意</button>
+                    </view>
+                    <view wx:if='{{ item.isApproved==1}}' class='approveOrRefuse'>
+                        <button class='approve'>已拒绝</button>
+                    </view>
+                </view>
+                <!--已过期-->
+                <view class='approveOrRefuse' wx:if='{{item.categoryId==3}}'>
+                    <button class='overTime'>已过期</button>
+                </view>
+                <!--人员已满-->
+                <view class='approveOrRefuse' wx:if='{{item.categoryId==4}}'>
+                    <button class='overNumber'>人员已满</button>
+                </view>
+            </view>
+            <!--评论类型-->
+            <view wx:if='{{item.categoryId==2 && item.senderId != userId}}' class='evaluate-block'>
+                <view class='evaluate'>
+                    <!--sender头像-->
+                    <view class='userInfo-avater' bindtap='enterUserInfo' data-senderid='{{item.senderId}}'>
+                        <image class='senderIcon' src="{{item.senderImage}}"></image>
+                    </view>
+                    <!--senderNickname评论，日期-->
+                    <view class='senderEvalueteInfo'>
+                        <view class='senderEvaluete'>
+                            <text class='senderNickname' bindtap='enterUserInfo' data-senderid='{{item.senderId}}'>{{item.senderNickName}}</text>
+                        <text class='evaluateText' decode='{{true}}' bindtap='enterNeedAndMessageDetails' data-item='{{item}}' wx:if='{{item.isReply == 1}}'>&nbsp;&nbsp;评论</text>
+                        <text class='evaluateText' decode='{{true}}' bindtap='enterNeedAndMessageDetails' data-item='{{item}}' wx:if='{{item.isReply == 0}}'>&nbsp;&nbsp;回复</text>
+                        </view>
+                        <!--评论消息创建时间-->
+                        <view class='createTime'>{{item.createTime}}</view>
+                    </view>
+                </view>
+                <!--评论需求简介-->
+                <view class='shortNeedStatment' bindtap='enterNeedAndMessageDetails' data-item='{{item}}'>
+                    <text class='shortNeedContent'>【{{util.subTitle(item.title)}}】 【{{util.subContent(item.content)}}】</text>
+                </view>
+                <!--评论内容-->
+                <view class='evaluateContent' bindtap='enterNeedAndMessageDetails' data-item='{{item}}'>
+                    <text class='evaluateContents' decode='true'>&nbsp;&nbsp;&nbsp;{{util.subContent(item.messageContent)}}</text>
+                </view>
+            </view>
+            <!--剔除消息-->
+            <view wx:if='{{item.categoryId==5}}' class='eliminate-block' bindtap='enterNeedAndMessageDetails' data-item='{{item}}'>
+                <view class='evaluate'>
+                    <!--sender头像-->
+                    <view class='userInfo-avater' bindtap='enterUserInfo' data-senderid='{{item.senderId}}'>
+                        <image class='senderIcon' src="{{item.senderImage}}"></image>
+                    </view>
+                    <!--senderNickname评论，日期-->
+                    <view class='senderEvalueteInfo'>
+                        <view class='senderEvaluete'>
+                            <text class='senderNickname' bindtap='enterUserInfo' data-senderid='{{item.senderId}}'>{{item.senderNickName}}</text>
+                        <text class='evaluateText' decode='{{true}}' bindtap='enterNeedAndMessageDetails' data-item='{{item}}'>&nbsp;&nbsp;从队伍移除了您</text>
+                        </view>
+                        <!--评论消息创建时间-->
+                        <view class='createTime' bindtap='enterNeedAndMessageDetails' data-item='{{item}}'>{{item.createTime}}</view>
+                    </view>
+                </view>
+                <!--评论需求简介-->
+                <view class='shortNeedStatment' bindtap='enterNeedAndMessageDetails' data-item='{{item}}'>
+                    <text class='shortNeedContent'>【{{util.subTitle(item.title)}}】 【{{util.subContent(item.content)}}】</text>
+                </view>
+                <!--评论内容-->
+                <view class='evaluateContent' bindtap='enterNeedAndMessageDetails' data-item='{{item}}'>
+                </view>
+            </view>
+        </block>
+</view>

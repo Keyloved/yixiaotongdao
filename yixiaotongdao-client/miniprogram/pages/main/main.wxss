@@ -1,0 +1,141 @@
+@import "/style/iconfont.wxss";
+.container{
+  background: #f5f5f5; 
+  display: table;
+  height: 100%;
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: hidden;
+}
+
+.search{
+  width: 1000%;
+}
+.search_arr {
+  border: 1px solid #d0d0d0;
+  border-radius: 10rpx;
+  margin-left: 20rpx;
+}
+.search_arr input{
+  margin-left: 60rpx;
+  height: 60rpx;
+  border-radius: 5px;
+}
+
+.page_row{
+  display: flex;
+  flex-direction: row;
+}
+.searchcion {
+  margin: 10rpx 10rpx 10rpx 10rpx;
+  position: absolute;
+  left:25rpx;
+  z-index: 2;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
+
+.needskinds{
+  margin: 30rpx,30rpx,30rpx;
+  border-bottom: 0.1rpx double rgb(240, 234, 234);
+  background:white;
+}
+
+.needKinds-line1{
+  margin-top: 40rpx;
+  display: flex;
+  flex-flow: row;
+}
+
+.needKinds-line2{
+  margin-top:20rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  flex-flow: row;
+}
+.icon-kindName{
+  margin-top: 30rpx;
+  margin-left:80rpx;
+  display: flex;
+  flex-flow: column;
+}
+
+.image{
+  height: 90rpx;
+  width: 90rpx;
+}
+
+
+.teaming{
+  background:white;
+  height: 300rpx;
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+  margin-top:15rpx; 
+  border: 0.1rpx double rgb(240, 234, 234);
+}
+.teaming_text{
+  text-align: center;
+  margin-top: 120rpx;
+}
+
+.teaming_text_view{
+  text-align: center;
+  font-size: 80%;
+  color:antiquewhite;
+}
+
+.newProgressStatement{
+  margin-top: 30rpx;
+  height: 40rpx;
+  margin-left: 25rpx;
+}
+
+.competitions{
+  margin-top: 10rpx;
+  background-color: white;
+}
+
+.competitionInfo{
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+  margin-top: 20rpx;
+  display: flex;
+  flex-flow: row;
+  border:0.1rpx double rgb(240, 234, 234);
+}
+
+.competitionInfo-image{
+    height: 120rpx;
+    width: 120rpx;
+}
+
+.competitionInfo-info{
+  margin-left: 20rpx;
+}
+
+.title-enterAddNew{
+  margin-top: 10rpx;
+  font-size: 80%;
+  display: flex;
+  flex-flow: row;
+}
+
+.title{
+  
+}
+
+.enterAddNew{
+  border:0.1rpx double red; 
+  font-size: 80%;
+  position: absolute;
+  right: 50rpx;
+}
+
+.content {
+  margin-top: 5rpx;
+  font-size: 60%;
+  color: rgb(212, 209, 209);
+}
+

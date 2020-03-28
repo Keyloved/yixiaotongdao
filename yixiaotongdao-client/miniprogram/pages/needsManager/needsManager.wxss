@@ -1,0 +1,119 @@
+@import "/style/iconfont.wxss";
+.table {
+  display: table;
+  width: 100%;
+  /* border-collapse 属性设置表格的边框是否被合并为一个单一的边框，解决相邻单元格边框未合并导致有些边框变粗的视觉效果 */
+  border-collapse: collapse;
+  overflow-x: hidden;
+}
+
+.arrayList-one{
+  margin-bottom: 30rpx;
+  border-bottom: 0.1rpx double rgb(240, 234, 234);
+}
+
+.title-createTime-viewNo{
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 30rpx;
+}
+
+.viewNo{
+  position:absolute;
+  right: 60rpx;
+}
+.viewNum{
+  font-size: 50%;
+}
+
+.title-createTime{
+  display: flex;
+  flex-flow: row;
+}
+
+.createTime{
+  font-size: 50%;
+}
+
+
+.titleAndProgress {
+  display: flex;
+}
+
+.myNeeds {
+  height: 0.9cm;
+  text-align: center;
+}
+
+.table-tr {
+  display: table-row;
+  width: 100%;
+  height: 200rpx;
+}
+
+.table-th {
+  flex-direction: column;
+  display: flex;
+  font-weight: bold;
+  border: 0px solid black;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table-td {
+  flex-direction: column;
+  display: flex;
+  border: 0px solid black;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.table-tl {
+  flex-direction: row;
+  display: flex;
+}
+.table-ti {
+  margin-left: 8cm;
+}
+
+.topBox {
+  padding-left: 30rpx;
+  padding-top: 50rpx;
+  display: flex;
+  flex-direction: row;
+}
+.topLittleBOX-1 {
+  font-size: 30rpx;
+  color: #4c4c4c;
+}
+.topLittleBOX-2 {
+  padding-left: 50rpx;
+  display: flex;
+  flex-direction: row;
+}
+.row-1 {
+   width: 305rpx; 
+  height: 30rpx;
+  background-color: #3edd24;
+  border-radius: 20rpx;
+}
+
+.rowText {
+  margin-left: 10rpx;
+  font-size: 30rpx;
+  color: #4c4c4c;
+}
+
+.applyExitNeed{
+  font-size: 30rpx;
+  color: #4c4c4c;
+  color: red;
+  position: absolute;
+  right: 60rpx;
+}
+
+
+
+
+
+

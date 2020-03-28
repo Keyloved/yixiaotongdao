@@ -1,0 +1,144 @@
+@import "/style/iconfont.wxss";
+.container{
+  display: table;
+  height: 100%;
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: hidden;
+}
+
+.ruider-cg{
+  height: 200rpx;
+  width: 100%;
+  display: flex;
+  border-bottom: 0.1rpx double rgb(240, 234, 234);
+}
+
+.ruider-cl {
+  width: 20%;
+  text-align: center;
+  margin-top: 100rpx;
+  border:0.1cm double silver;
+  height:50rpx;
+  font-size: 80%;
+}
+
+.ruider-cj {
+  margin-top: 100rpx;
+  width: 20%;
+  text-align: center;
+  border:0.1cm double silver;
+  height:50rpx;
+  border: 0.1cm double red;
+  font-size: 80%;
+}
+
+.text-message{
+  margin-top: 50rpx;
+  margin-left: 30rpx;
+}
+
+
+
+.graduationSession-show{
+  
+}
+
+.common-shezhi{
+  margin: 28rpx 28rpx 28rpx;
+  border-bottom: 0.1rpx double rgb(240, 234, 234);
+}
+
+.iconfont{
+  margin-left: 20rpx;
+}
+
+.view{
+  margin-left: 60rpx;
+  font-size: 80%;
+}
+.write{
+  margin-left: 60rpx;
+  font-size: 80%;
+}
+
+
+.graduationSession-show_left_right{
+  margin-top: 50rpx;
+  display: flex;
+  flex-flow: row;
+}
+
+.graduationSession-show_left{
+    width: 25%;
+    margin-left: 20rpx;
+}
+
+.fullTime{
+  text-align: right;
+  
+}
+
+.time{
+  font-size: 60%;
+  line-height: 88rpx;
+  border-bottom: 0.1rpx double rgb(240, 234, 234);
+}
+
+.graduationSession-show_right {
+  width: 40%;
+}
+
+
+.progress_box{
+position: relative;
+width:220px;
+height: 220px;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+.progress_bg{
+position: absolute;
+width:220px;
+height: 220px;
+}
+.progress_canvas{
+width:220px;
+height: 220px;
+}
+.progress_text{
+position: absolute;
+align-items: center;
+justify-content: center
+}
+
+.day_text{
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center
+}
+
+.day{
+  font-size: 50rpx;
+}
+
+.progress_info{
+font-size: 36rpx;
+padding-left: 16rpx;
+letter-spacing: 2rpx
+}
+.progress_dot{
+margin-right: 20rpx;
+width:16rpx;
+height: 16rpx;
+border-radius: 50%;
+background-color: #fb9126;
+}
+
+.LeavingMessage{
+  margin-top: 50rpx;
+  text-align: center;
+}

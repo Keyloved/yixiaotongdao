@@ -1,0 +1,36 @@
+<view class='warp'>
+      <view class='list' catchtap='clickList'>
+          <view class='style {{item.id==num?"active":""}}' wx:for="{{kinds[kindId].items}}" wx:key="" id="{{item.id}}">{{item.text}}</view>
+      </view>
+      <!--右边展示-->
+      <view class='content'>
+          <block wx:for='{{needsList}}' wx:key=''>
+              <view class='contentBlock' wx:if='{{item.needDetails.categoryId%10==list_index}}'>
+                  <!--<text>{{item.needDetails.categoryId%10}}</text>
+                  <!--头像和昵称-->
+                  <view class='userInfo-avater-nickName'>
+                      <view class='userInfo-avater'>
+                          <image class='senderIcon' src="{{item.user.image}}" bindtap='enterUserInfo' data-senderid='{{item.user.id}}'></image>
+                      </view>
+                      <view class='nickName-createTime' data-senderid='{{item.user.id}}' bindtap='enterUserInfo'>
+                          <text class='nickName' data-senderid='{{item.user.id}}'>{{item.user.nickName}}</text>
+                          <view class='createTime'>{{item.needDetails.updateTime}}</view>
+                      </view>
+                      <view class='viewNo'>
+                          <icon class="iconfont iconicon_yulan"></icon>
+                          <text class='viewNum'>{{item.needDetails.viewNo}}</text>
+                      </view>
+                  </view>
+                  <!--需求概要-->
+                  <view data-item='{{item.needDetails}}' bindtap='enterNeedDetails'>
+                      <view class='needTitle'>
+                          <text>【{{item.needDetails.title}}】</text>
+                      </view>
+                      <view class='needContent'>
+                          <text decode='true'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.needDetails.content}}</text>
+                      </view>
+                  </view>
+              </view>
+          </block>
+      </view>
+</view>

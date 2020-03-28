@@ -1,0 +1,35 @@
+<view class="table">
+      <block wx:for='{{threeArray}}' wx:key='*this' wx:for-item='oneArray'>
+            <view wx:for='{{oneArray}}' wx:key='id' class='arrayList-one' bindtap='detailsNeeds' data-item='{{item}}'>
+                <view class="title-createTime-viewNo">
+                    <!--显示标题-->
+                    <text>【{{item.title}}】</text>
+                    <!--显示时间-->
+                    <view class='createTime-show'>
+                        <view>
+                            <text decode='true' class='createTime'></text>
+                        </view>
+                        <view>
+                            <text decode='true' class='createTime'>&nbsp;&nbsp;&nbsp;{{item.createTime}}</text>
+                        </view>
+                    </view>
+                    <!--查看人数显示-->
+                    <view class='viewNo'>
+                          <icon class="iconfont iconicon_yulan"></icon>
+                          <text class='viewNum'>{{item.viewNo}}</text>
+                    </view>
+                </view>
+                    <text decode='true'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.content}}</text>
+                <view class="table-th">   
+                </view>
+                <view class='topBox'>
+                    <view class='topLittleBOX-1'>人数占比</view>
+                    <view class='topLittleBOX-2'>
+                      <view class='row-1' style='width:{{300/item.limitNo*item.joinNo}}rpx'></view>
+                      <view class='rowText'>{{item.joinNo}}/{{item.limitNo}}</view>
+                      <view wx:if='{{whichOperation == "joined"}}' class='applyExitNeed' bindtap='applyExitNeed' data-item='{{item}}' data-id='1' data-whichoperation='applyQuit'>申请退出</view>
+                    </view>
+                </view>
+            </view>
+      </block>
+    </view>

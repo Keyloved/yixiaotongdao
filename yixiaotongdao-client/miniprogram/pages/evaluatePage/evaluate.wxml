@@ -1,0 +1,30 @@
+<form bindsubmit="formSubmit">
+    <!--申请加入-->
+    <view wx:if='{{whichOperation == "applyJoin"}}' class='place-holder' style="border: 1px solid #FFA6A6; border-radius: 10px;">
+          <textarea placeholder-class="place-holder"  placeholder="请输入内容"                                    name="content" maxlength='300' bindinput='limit' value="申请加入" disabled='true' style="font-size: 14px;"/>
+
+          <!-- 显示字数 -->
+          <view class="weui-cell__bd" class="clear"><text style="color: #ccc; font-size: 14px; float:               right; margin-right: 2%;">{{current}} / {{max}} （最多可写300字）</text>
+          </view>
+    </view>
+    <!--申请退出-->
+    <view wx:elif='{{whichOperation == "applyQuit"}}' class='place-holder' style="border: 1px solid #FFA6A6; border-radius: 10px;">
+          <textarea placeholder-class="place-holder"  placeholder="请输入内容"                                    name="content" maxlength='300' bindinput='limit' value="申请退出" disabled='true' style="font-size: 14px;"/>
+
+          <!-- 显示字数 -->
+          <view class="weui-cell__bd" class="clear"><text style="color: #ccc; font-size: 14px; float:               right; margin-right: 2%;">{{current}} / {{max}} （最多可写300字）</text>
+          </view>
+    </view>
+    <!--其他类型-->
+    <view wx:else class='place-holder' style="border: 1px solid #FFA6A6; border-radius: 10px;">
+          <textarea placeholder-class="place-holder"  placeholder="请输入内容"                                    name="content" maxlength='300' bindinput='limit' value="" style="font-size: 14px;"/>
+
+          <!-- 显示字数 -->
+          <view class="weui-cell__bd" class="clear"><text style="color: #ccc; font-size: 14px; float:               right; margin-right: 2%;">{{current}} / {{max}} （最多可写300字）</text>
+          </view>
+    </view>
+    <view class='leaveWords'> 
+          <button type='primary' formType="submit" wx:if='{{categoryId==1}}'>申请</button>
+          <button type='primary' formType="submit" wx:else>发表</button>
+    </view>
+</form>

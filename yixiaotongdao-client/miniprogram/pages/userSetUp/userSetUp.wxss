@@ -1,0 +1,43 @@
+/* miniprogram/pages/userSetUp/userSetUp.wxss */
+@import "/style/iconfont.wxss";
+.container{
+  display: table;
+  height: 100%;
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: hidden;
+}
+
+.finish{
+  margin-top: 40rpx;
+  position: absolute;
+  right: 20rpx;
+  color: red;
+}
+
+.common-shezhi {
+  margin-top: 100rpx;
+  margin-left: 20rpx;
+  border-bottom: 0.1rpx double rgb(240, 234, 234);
+}
+
+.QQ-show {
+  margin-top: 30rpx;
+  margin-left: 350rpx;
+  
+}
+
+.weixin-show {
+  margin-top: 30rpx;
+  margin-left: 350rpx;
+}
+
+.myNeeds{
+  margin-top: 30rpx;
+  margin-left: 350rpx;
+}
+
+.switch-show{
+  position: absolute;
+  right: 0rpx;
+}

@@ -1,0 +1,34 @@
+<!--miniprogram/pages/leavingMessage/view/view.wxml-->
+<view class='container'>
+    <!--一封信功能描述-->
+    <view wx:if='{{whichOperation == "sayGraduation"}}' class='Desc'>
+        <text>「说毕业」 </text>
+    </view>
+    <!--表白墙功能描述-->
+    <view wx:elif='{{whichOperation == "confessionWall"}}' class='Desc'>
+        <text>「表白墙」 </text>
+    </view>
+    <!--吐槽功能描述-->
+    <view wx:elif='{{whichOperation == "complaints"}}' class='Desc'>
+        <text>「吐个槽」 </text>
+    </view>
+    <view wx:for='{{leaveingManageList}}' wx:key='id' class='view-item'>
+        <!--用户名和留言-->
+        <!--sender头像-->
+        <view class='userInfo-avater' bindtap='enterUserInfo' data-senderid='{{item.userInfo.id}}'>
+            <image class='userIcon' src="{{item.userInfo.image}}"></image>
+        </view>
+        <view class='nickName-messsage-createTime'>
+            <view class='nickName'>
+                <text style='color:red' bindtap='enterUserInfo' data-senderid='{{item.userInfo.id}}'>{{item.userInfo.nickName}}</text>
+            </view>
+            <!--消息展示-->
+            <view class='message'>
+                <text>{{item.leaveingManage.content}}</text>
+            </view>
+            <view class='createTime'>
+                <text>{{item.leaveingManage.createTime}}</text>
+            </view>
+        </view>
+    </view>
+</view>

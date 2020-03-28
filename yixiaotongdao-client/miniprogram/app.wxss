@@ -1,0 +1,30 @@
+.container{
+  
+}
+
+.show-author {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background: #000;
+  opacity: 0.8;
+}
+
+.show-author>.get-userinfo {
+  color: #fff;
+  background-color: #f00;
+  border-radius: 10rpx;
+  top: 50%;
+  margin-top: 70%;
+}
+
+.welcomeWords {
+  color: #fff;
+  background-color: #f00;
+  border-radius: 10rpx;
+  top: 50%;
+  margin-top: 70%;
+}

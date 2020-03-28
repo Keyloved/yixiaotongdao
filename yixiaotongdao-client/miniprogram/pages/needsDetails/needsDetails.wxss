@@ -1,0 +1,80 @@
+@import "/style/iconfont.wxss";
+.table {
+  display: table;
+  width: 100%;
+  /* border-collapse 属性设置表格的边框是否被合并为一个单一的边框，解决相邻单元格边框未合并导致有些边框变粗的视觉效果 */
+  border-collapse: collapse;
+  overflow-x: hidden;
+  
+}
+
+.needBlock{
+    border:0.1rpx double silver;
+}
+.common-lable{
+  margin-top: 20rpx;
+}
+
+.common-shezhi{
+  font-size: 70%;
+}
+
+.joinUsersImages{
+  display: flex;
+  flex-flow: row;
+}
+
+.userInfoIcon{
+  width:40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-left: 10rpx;
+}
+
+.opreations{
+  height: 60rpx;
+  display: flex;
+  flex-flow: row;
+  background: #f2f2f2f2;
+}
+
+.table-ti{
+  line-height: 60rpx;
+  margin-left: 30rpx;
+  font-size: 25rpx;
+  color: rgb(141, 71, 71);
+  border-bottom: 0.1rpx double rgb(240, 234, 234);
+}
+
+.table-ti>button::after{
+  border: 0rpx;
+  margin-left: 10rpx;
+}
+
+.share{
+  font-size: 25rpx;
+  color: rgb(141, 71, 71);
+  border: 0rpx;
+  height: 60rpx;
+  line-height: 60rpx; 
+  background: #f2f2f2f2;
+}
+
+.evaluateList{
+  background-color: #f2f2f2f2;
+}
+
+.evaluates{
+  font-size: 70%;
+}
+
+.senderNickName{
+  color:red;
+}
+
+.recipientNickName{
+  color:red;
+}
+
+

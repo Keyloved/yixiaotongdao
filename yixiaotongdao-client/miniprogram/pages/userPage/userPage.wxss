@@ -1,0 +1,111 @@
+@import "/style/iconfont.wxss";
+.container{
+  display: table;
+  height: 100%;
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: hidden;
+}
+.notSignIn{
+  background-color: rgb(190, 185, 185);
+  height: 230rpx;
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
+  border-bottom: 0.1rpx double rgb(240, 234, 234);
+}
+
+
+.signIn{
+  margin: 0 28rpx 0;
+  height: 230rpx;
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
+  border-bottom: 0.1rpx double rgb(240, 234, 234);
+}
+.userInfoIcon{
+  width:80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.SignInView{
+  margin: 0 28rpx 0;
+  color: red;
+  font-size: 150%;
+}
+
+.notSignInImage{
+  margin: 0 28rpx 0;
+  width:150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.userInfoLeft{
+  display: flex;
+}
+.userInfo-avater{
+  padding-right: 20rpx;
+  display: flex;
+  align-items: center;
+}
+.userInfo-name{
+  font-weight: 700;
+}
+.userinfo-gender{
+  color: #A6A6A6;
+}
+
+.getUserDetails{
+  margin-right: 30rpx;
+}
+
+.opreatText{
+  margin-left: 40rpx;
+}
+
+.addNewNeed{
+  margin: 28rpx 28rpx 28rpx;
+  padding-right: 20rpx;
+  border-bottom: 0.1rpx double rgb(240, 234, 234);
+}
+
+.allNeeds{
+  margin: 28rpx 28rpx 28rpx;
+  padding-right: 20rpx;
+  border-bottom: 0.1rpx double rgb(240, 234, 234);
+}
+
+.joinedNeeds{
+  margin: 28rpx 28rpx 28rpx;
+  padding-right: 20rpx;
+  border-bottom: 0.1rpx double rgb(240, 234, 234);
+}
+
+.finishedNeeds{
+  margin: 28rpx 28rpx 28rpx;
+  padding-right: 20rpx;
+  border-bottom: 0.1rpx double rgb(240, 234, 234);
+}
+
+.unFinishedNeeds{
+  margin: 28rpx 28rpx 28rpx;
+  padding-right: 20rpx;
+  border-bottom: 0.1rpx double rgb(240, 234, 234);
+}
+
+.userInfo-credit{
+  margin: 28rpx 28rpx 28rpx;
+  padding-right: 20rpx;
+  border-bottom: 0.1rpx double rgb(240, 234, 234);
+}
+
+.collectionNeeds{
+  margin: 28rpx 28rpx 28rpx;
+  padding-right: 20rpx;
+  border-bottom: 0.1rpx double rgb(240, 234, 234);
+}

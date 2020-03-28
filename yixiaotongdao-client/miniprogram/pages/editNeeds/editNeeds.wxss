@@ -1,0 +1,155 @@
+/* miniprogram/pages/user/userDetails.wxss */
+/*!
+ * WeUI v1.1.1 (https://github.com/weui/weui-wxss)
+ * Copyright 2017 Tencent, Inc.
+ * Licensed under the MIT license
+ */
+.weui-cell{
+  display: flex;
+  flex-flow: row;
+  margin-left: 20rpx;
+  height: 80rpx;
+  border-bottom: 1rpx double rgb(163, 161, 161);
+}
+
+.weui-cell__hd_type{
+  width: 15%;
+}
+
+.weui-cell__bd_selector{
+  margin-left: 20rpx;
+}
+
+.weui-cell__hd{
+  width: 30%;
+}
+
+
+.select_box{
+
+  background: #fff;
+
+  width: 20%;
+
+  margin-left: 0rpx;
+
+  position: relative;
+
+}
+
+.select{
+
+  box-sizing: border-box;
+
+  width: 100%;
+
+  border:1px solid red;
+
+  border-radius: 8rpx;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 0 20rpx;
+
+}
+
+.select_text{
+
+  font-size: 30rpx;
+
+  flex: 1;
+
+}
+
+.select_img{
+
+  width: 40rpx;
+
+  height: 40rpx;
+
+  display: block;
+
+  transition:transform 0.3s;
+
+}
+
+.select_img_rotate{
+
+  transform:rotate(180deg); 
+
+}
+
+.option_box{
+
+  position: absolute;
+
+  top: 70rpx;
+
+  width: 100%;
+
+  border:1px solid #efefef;
+
+  box-sizing: border-box;
+
+  height: 0;
+
+  overflow-y: auto;
+
+  border-top: 0;
+
+  background: #fff;
+
+  transition: height 0.3s;
+
+}
+
+.option{
+
+  display: block;
+
+  line-height: 40rpx;
+
+  font-size: 30rpx;
+
+  border-bottom: 1px solid #efefef;
+
+  padding: 10rpx;
+
+}
+
+.radio{
+  width: 38rpx;
+}
+ 
+radio .wx-radio-input{
+    border-radius: 50%; 
+    width: 28rpx;
+    height: 28rpx;
+}
+
+ 
+/* 选中后的样式 （可根据设计稿需求自己修改） */
+.radio .wx-radio-input.wx-radio-input-checked::before{
+    border-radius: 50%;
+    width: 44rpx; 
+    height: 44rpx; 
+    line-height: 44rpx;
+    text-align: center;
+    font-size: 26rpx; /* 对勾大小 26rpx */
+    color:#fff; /* 对勾颜色 */
+    background: #2facff;
+    border-color: #2facff;
+}
+
+.weui-cell_textarea{
+  height:300rpx;
+  display: flex;
+  flex-flow: row;
+  margin-left: 20rpx;
+  border-bottom: 1rpx double rgb(163, 161, 161);
+
+}
+
+

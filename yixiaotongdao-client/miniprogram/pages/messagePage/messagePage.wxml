@@ -1,0 +1,156 @@
+<view class='container'>
+  <block>
+    <view class='ruider-cg'>
+        <view class='ruider-cj' wx:if='{{applyNo!=0 }}' bindtap='getMessageList' data-id='1' data-isreply='0'>
+            <text>申请</text>
+            <text style='color:red' wx:if='{{applyNo!=0 }}'> {{applyNo}}</text>
+        </view>
+        <view class='ruider-cl' wx:else bindtap='getMessageList' data-id='1' data-isreply='0'>申请</view>
+        <view class='ruider-cj' wx:if='{{evaluateNo!=0 }}' bindtap='getMessageList' data-id='2' data-isreply='1'>
+            <text>评论</text>
+            <text style='color:red' wx:if='{{evaluateNo!=0 }}'> {{evaluateNo}}</text>
+         </view>
+        <view class='ruider-cl' wx:else bindtap='getMessageList' data-id='2' data-isreply='1'>评论</view>
+        <view class='ruider-cj' wx:if='{{overTimeNo!=0 }}' bindtap='getMessageList' data-id='3' data-isreply='0'>
+            <text>过期</text>
+            <text style='color:red' wx:if='{{overTimeNo!=0 }}'> {{overTimeNo}}</text>
+         </view>
+        <view class='ruider-cl' wx:else bindtap='getMessageList' data-id='3' data-isreply='0'>过期</view>
+        <view class='ruider-cj' wx:if='{{overNumberNo!=0 }}' bindtap='getMessageList' data-id='4' data-isreply='0'>
+            <text>人员满</text>
+            <text style='color:red' wx:if='{{overNumberNo!=0 }}'> {{overNumberNo}}</text>
+        </view>
+        <view class='ruider-cl' wx:else bindtap='getMessageList' data-id='4' data-isreply='0'>人员满</view>
+        <view class='ruider-cj' wx:if='{{eliminateNo!=0 }}' bindtap='getMessageList' data-id='5' data-isreply='0'>
+            <text>剔除</text>
+            <text style='color:red' wx:if='{{eliminateNo!=0 }}'> {{eliminateNo}}</text>
+        </view>
+        <view class='ruider-cl' wx:else bindtap='getMessageList' data-id='5' data-isreply='0'>剔除</view>
+    </view>
+  </block>
+  <!--西电消息-->
+  <block>
+      <!--写留言专区-->
+      <view class='text-message'>
+           <!--毕业届-->
+          <view class='graduationSession-show'>
+              <view class='common-shezhi graduationSession'  bindtap='showGraduationSession'>
+                  <text>{{graduationSession}}届毕业倒计时</text>
+                  <icon wx:if='{{!showGraduation}}' class="iconfont iconxiangxiazhanhang"></icon>
+                  <icon wx:else class="iconfont iconxiangshangzhanhang"></icon>
+              </view>
+              <view class='graduationSession_fixed_text'>
+                  <text decode='true' style='font-size:80%'></text>
+              </view>
+              <view class='graduationSession-show_left_right' wx:if='{{showGraduation}}'>
+                  <!--毕业倒计时左侧-->
+                  <view class='graduationSession-show_left'>
+                      <view class='fullTime'>
+                          <view class='time'>
+                              <text>4年</text>
+                          </view>
+                          <view class='time'>
+                              <text>{{fullTime_day}}天</text>
+                          </view>
+                          <view class='time'>
+                              <text>{{fullTime_hou}}小时</text>
+                          </view>
+                          <view class='time'>
+                              <text>{{fullTime_min}}分</text>
+                          </view>
+                          <view class='time'>
+                              <text>{{fullTime_sec}}秒</text>
+                          </view>
+                      </view>
+                  </view>
+                  <!--毕业倒计时右侧-->
+                  <view class='graduationSession-show_right'>
+                      <view class='progress_box'>
+                          <canvas class="progress_bg"  canvas-id="canvasProgressbg"> </canvas>
+                          <canvas class="progress_canvas" canvas-id="canvasProgress"> </canvas>
+                          <view class="progress_text">
+                              <view class='day_text'>
+                                  <view class="progress_dot"></view>
+                                  <text class='day'>{{day}}天</text>
+                              </view>
+                              <view class='hour_min_sec_text'>
+                                  <text class='progress_info'>{{hou}}小时{{min}}分{{sec}}秒</text>
+                              </view>
+                          </view>
+                      </view>
+                  </view>
+              </view>
+          </view>
+          <!--毕业留言-->
+          <view class='graduationMessage-show'>
+              <view class='common-shezhi graduationMessage' bindtap='showGraduationMessage'>
+                  <text>说毕业</text>
+                  <icon wx:if='{{!showGraduationMessage}}' class="iconfont iconxiangxiazhanhang"></icon>
+                      <icon wx:else class="iconfont iconxiangshangzhanhang"></icon>
+              </view>
+              <!--查看留言和写留言-->
+              <view wx:if='{{showGraduationMessage}}' class='view-write'>
+                  <!--查看留言-->
+                  <view class='view' bindtap='view' data-whichoperation='sayGraduation'>
+                      <icon class="iconfont iconicon_yulan"></icon>
+                      <text decode='true'>&nbsp;&nbsp;&nbsp;查看留言</text>
+                  </view>
+                  <!--写留言-->
+                  <view class='write' bindtap='write' data-whichoperation='sayGraduation'>
+                      <icon  class="iconfont iconbianjisekuai"></icon>
+                      <text decode='true'>&nbsp;&nbsp;&nbsp;写留言</text>
+                  </view>
+              </view>
+          </view>
+          <!--西电表白墙-->
+          <view class='confessioWwall-show'>
+              <!--查看表白墙和表白-->
+              <view class='common-shezhi confessioWwall' bindtap='showConfessioWall'>
+                  <text>表白墙</text>
+                  <icon wx:if='{{!showConfessioWall}}' class="iconfont iconxiangxiazhanhang"></icon>
+                      <icon wx:else class="iconfont iconxiangshangzhanhang"></icon>
+              </view>
+              <view wx:if='{{showConfessioWall}}' class='confessioWwall'>
+                  <!--查看留言-->
+                  <view class='view' bindtap='view' data-whichoperation='confessionWall'>
+                      <icon class="iconfont iconicon_yulan"></icon>
+                      <text decode='true'>&nbsp;&nbsp;&nbsp;看看墙</text>
+                  </view>
+                  <!--写留言-->
+                  <view class='write' bindtap='write' data-whichoperation='confessionWall'>
+                      <icon  class="iconfont iconbianjisekuai"></icon>
+                      <text decode='true'>&nbsp;&nbsp;&nbsp;表个白</text>
+                  </view>
+              </view>
+          </view>
+          <!--吐个槽-->
+          <view class='confessioWwall-show'>
+              <!--查看吐槽文章和写-->
+              <view class='common-shezhi complaints' bindtap='showComplaints'>
+                  <text>吐个槽</text>
+                  <icon wx:if='{{!showComplaints}}' class="iconfont iconxiangxiazhanhang"></icon>
+                      <icon wx:else class="iconfont iconxiangshangzhanhang"></icon>
+              </view>
+              <view wx:if='{{showComplaints}}' class='complaints'>
+                  <!--查看留言-->
+                  <view class='view' bindtap='view' data-whichoperation='complaints'>
+                      <icon class="iconfont iconicon_yulan"></icon>
+                      <text decode='true'>&nbsp;&nbsp;&nbsp;瞄一眼</text>
+                  </view>
+                  <!--写留言-->
+                  <view class='write' bindtap='write' data-whichoperation='complaints'>
+                      <icon  class="iconfont iconbianjisekuai"></icon>
+                      <text decode='true'>&nbsp;&nbsp;&nbsp;吐吐槽</text>
+                  </view>
+              </view>
+          </view>
+          <!--写给未来的自己-->
+          <view class='writeToFuture-show'>
+              <view class='common-shezhi writeToFuture' bindtap='write' data-whichoperation='writeToFuture'>
+                  <text>一封信</text>
+                  <icon class="iconfont iconbianjisekuai"></icon>
+              </view>
+          </view>
+      </view>
+  </block>
+</view>

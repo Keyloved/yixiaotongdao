@@ -1,0 +1,32 @@
+<view class='container'>
+    <view  class='joinUserInfoList-show' wx:for='{{joinUserInfoList}}' wx:key='id'>
+        <view class='joinUserInfo-show'>
+            <view bindtap='enterUserInfo' class='joinUserInfo-show' data-userid='{{item.id}}'>
+                <!--头像显示-->
+                <view class='common-shezhi joinUserInfo-show-image'>
+                    <image src='{{item.image}}' class='userInfoIcon'></image>
+                </view>
+                <!--昵称显示-->
+                <view class='common-shezhi joinUserInfo-show-nickName'>
+                    <text>{{item.nickName}}</text>
+                </view>
+                <!--年龄显示-->
+                <view class='common-shezhi joinUserInfo-show-age'>
+                    <text>{{item.age}}</text>
+                </view>
+                <!--性别显示-->
+                <view class='common-shezhi joinUserInfo-show-sex'>
+                    <text>{{item.sex}}</text>
+                </view>
+                <!--信誉度显示-->
+                <view class='common-shezhi joinUserInfo-show-level'>
+                    <text>{{item.level}}级</text>
+                </view>
+            </view>
+            <!--剔除icon-->
+            <view class='eliminate' bindtap='eliminate' data-joineduserid='{{item.id}}'>
+                <icon class="iconfont iconfangkuai" style='color:red'></icon>
+            </view>
+        </view>
+    </view>
+</view>

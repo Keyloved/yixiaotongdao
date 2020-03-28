@@ -1,0 +1,91 @@
+/* miniprogram/pages/userInfo/userInfo.wxss */
+@import "/style/iconfont.wxss";
+.container{
+  display: table;
+  height: 100%;
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: hidden;
+  
+}
+
+.userInfo{
+  
+}
+
+.iconAndNicknameAndSexAndautograph{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 0.1rpx double rgb(250, 246, 246);
+}
+
+.userInfoIcon{
+  margin-left: 40rpx;
+  width:250rpx;
+  height: 250rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.userinfo-gender{
+  color: #A6A6A6;
+}
+
+.userInfoDetails{
+  margin-left: 40rpx;
+  margin-top: 40rpx;
+}
+.userInfo-name-class{
+  margin: 28rpx 28rpx 28rpx;
+  border-bottom: 0.1rpx double rgb(250, 246, 246);
+}
+.userinfo-gender-age-headurl-autograph{
+  margin: 28rpx 28rpx 28rpx;
+  border-bottom: 0.1rpx double rgb(250, 246, 246);
+}
+
+.autograph{
+  margin: 28rpx 28rpx 28rpx;
+  border-bottom: 0.1rpx double rgb(250, 246, 246);
+}
+
+.userInfo-name{
+  margin: 28rpx 28rpx 28rpx;
+  text-align:center;
+  font-size: 120%;
+}
+
+.userInfo-needs-label{
+  margin-left: 40rpx;
+}
+
+.QQ{
+  margin: 28rpx 28rpx 28rpx;
+  border-bottom: 0.1rpx double rgb(250, 246, 246);
+}
+
+.weixin{
+  margin: 28rpx 28rpx 28rpx;
+  border-bottom: 0.1rpx double rgb(250, 246, 246);
+}
+
+.userInfo-needs{
+  margin: 28rpx 28rpx 28rpx;
+  margin-bottom: 40rpx;
+  border-bottom: 0.1rpx double rgb(240, 234, 234); 
+}
+
+.userInfo-finished-needs{
+  margin: 28rpx 28rpx 28rpx;
+  margin-bottom: 40rpx;
+  border-bottom: 0.1rpx double rgb(240, 234, 234);
+}
+
+.userInfo-credit{
+  margin: 28rpx 28rpx 28rpx;
+  margin-bottom: 40rpx;
+  border-bottom: 0.1rpx double rgb(240, 234, 234);
+}
+
+
